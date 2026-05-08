@@ -35,6 +35,28 @@
 
   gtag('config', 'AW-17825465617');
 </script>
+
+<!-- Event snippet for Tıkla ve ara conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17825465617/m_IcCOW54KkcEJGK7LNC',
+      'value': 1.0,
+      'currency': 'ILS',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
+
+
 </head>
 
 <body>
@@ -61,8 +83,11 @@
 
 
   <div>
-    <a href="#" onclick="openWhatsApp()"><button class="main-btn">
-      הזמן שיעור ניסיון • BOOK A TRIAL LESSON </button></a></div>
+    <a href="#" class="main-btn"
+       onclick="gtag_report_conversion(); openWhatsApp(); return false;">
+       הזמן שיעור ניסיון • BOOK A TRIAL LESSON
+    </a>
+  </div>
 
 
 </header>
@@ -159,22 +184,24 @@
     <h2>Ready to start your musical journey?</h2>
     <br>
     <div class="cards">
-        <div class="buttons">
-          <button class="main-btn" onclick="openWhatsApp()">
+        <div class="main-btn  ">
+          <button class="main-btn" onclick="gtag_report_conversion(); openWhatsApp(); return false;">
           הזמן שיעור ניסיון• BOOK A TRIAL LESSON   
           </button>
         </div>
-        <div class="buttons">
-          <button class="main-btn" onclick="openWhatsApp()">
+        <div class="main-btn">
+          <button class="main-btn" onclick="gtag_report_conversion(); openWhatsApp(); return false;">
             וואטסאפ • WHATSAPP 
           </button>
         </div>
-        <div class="buttons">
-          <a href="tel:+972523726062">
-            <button class="main-btn">התקשר אליי • CALL ME</button>
+        <div class="main-btn">
+          <a href="tel:+972523726062"            
+            onclick="return gtag_report_conversion('tel:+972523726062');"><button class="main-btn">
+                 התקשר אליי • CALL ME
+            </button>          
           </a>
         </div>
-        <div class="buttons">
+        <div class="main-btn">
           <a href="https://www.tiktok.com/@piano.shabi" target="_blank"><button class="main-btn">
            עקבו אחריי בטיקטוק• FOLLOW ME ON TIKTOK
           </button>
